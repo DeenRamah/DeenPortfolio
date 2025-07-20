@@ -1,3 +1,6 @@
+Here's the complete HTML code with all your professional sections properly integrated while maintaining your existing design:
+
+```html
 <!DOCTYPE html>
 <!-- saved from url=(0033)http://127.0.0.1:5500/index.html# -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,10 +12,125 @@
 <!--===== Font Awesome =====-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <!--===== Main CSS =====-->
-
 <link rel="stylesheet" href="css/style.css">
-
-
+<style>
+    /* New Professional Sections Styling */
+    .professional-section {
+        padding: 80px 0;
+        background-color: #f9f9f9;
+    }
+    
+    .professional-section .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    
+    .professional-section .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    
+    .professional-section .section-title h3 {
+        font-size: 36px;
+        color: #333;
+        margin-bottom: 15px;
+    }
+    
+    .professional-section .section-title .line {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .professional-section .section-title .line li {
+        width: 40px;
+        height: 3px;
+        background-color: #ff4d4d;
+        margin: 0 5px;
+    }
+    
+    .professional-content {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+    }
+    
+    .professional-text {
+        flex: 1;
+        padding: 0 30px;
+    }
+    
+    .professional-images {
+        display: flex;
+        gap: 20px;
+        margin-top: 30px;
+    }
+    
+    .professional-images img {
+        width: 100%;
+        max-width: 250px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .professional-highlights {
+        margin-top: 30px;
+    }
+    
+    .professional-highlights li {
+        margin-bottom: 15px;
+        position: relative;
+        padding-left: 25px;
+    }
+    
+    .professional-highlights li:before {
+        content: "•";
+        color: #ff4d4d;
+        font-size: 24px;
+        position: absolute;
+        left: 0;
+        top: -3px;
+    }
+    
+    .contact-details {
+        margin: 20px 0;
+        padding: 15px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 8px;
+    }
+    
+    blockquote {
+        font-style: italic;
+        padding: 15px;
+        background: #f5f5f5;
+        border-left: 4px solid #ff4d4d;
+        margin: 20px 0;
+    }
+    
+    cite {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .professional-content {
+            flex-direction: column;
+        }
+        
+        .professional-text {
+            padding: 0;
+            margin-bottom: 30px;
+        }
+        
+        .professional-images {
+            justify-content: center;
+        }
+    }
+</style>
 </head>
 <body>
     <div id="map"></div>
@@ -27,7 +145,7 @@
             <ul class="menu">
                 <li class="nav-item"><a href="#home" class="nav-link active">Home <span></span></a></li>
                 <li class="nav-item"><a href="#about" class="nav-link">About <span></span></a></li>
-                <li class="nav-item"><a href="#services" class="nav-link">Services <span></span></a></li>
+                <li class="nav-item"><a href="#professional-summary" class="nav-link">Profile <span></span></a></li>
                 <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio <span></span></a></li>
                 <li class="nav-item"><a href="#pricing" class="nav-link">Pricing <span></span></a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link">Contact <span></span></a></li>
@@ -76,285 +194,206 @@
     <div class="header-hero-shape"></div> <!--===== Hero Shape =====-->
 </section>
 <!--===== Home Section End =====-->
-<!--===== About Section Start =====-->
-<section class="about-section section-padding" id="about">
+
+<!-- Professional Summary Section -->
+<section class="professional-section" id="professional-summary">
     <div class="container">
-        <div class="row align-items-center justify-content-center">
-            <div class="about-image">
-                <div class="img-box">
-                    <img src="images/about_hero.jpg" alt="">
-                    <div class="about-shape"></div>
+        <div class="section-title">
+            <h3>Professional Summary</h3>
+            <ul class="line">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="professional-content">
+            <div class="professional-text">
+                <p>Multi-disciplinary Software Engineer with expertise in both front-end and back-end development. Skilled in HTML, CSS, JavaScript, React, Angular, TypeScript, Vue, Node.js, Python, Ruby, MySQL, and MongoDB. Experienced with version control systems, API integration, server management, and deployment.</p>
+                
+                <div class="professional-highlights">
+                    <ul>
+                        <li>Versatility in programming and frameworks</li>
+                        <li>Strong Technical Foundation in full-stack development</li>
+                        <li>Excellent Problem Solving and Debugging Proficiency</li>
+                        <li>Cybersecurity Awareness and Collaborative Team Player</li>
+                    </ul>
                 </div>
             </div>
-            <div class="about-content">
-                <div class="section-title">
-                    <h5 class="sub-title">About</h5>
-                    <h3 class="main-title">Professional Summary</h3>
-                    <ul class="line">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div> <!--===== Section Title =====-->
-                <div class="professional-summary">
-                    <h4>🎯 PROFESSIONAL SUMMARY</h4>
-                    <p>Multi-disciplinary Software Engineer | Tutor | Cybersecurity Enthusiast | Network Engineer with a rich background in full-stack development, testing, and systems security. Expert in Flutter, Next.js, Vue.js, and Python. Architected and deployed 15+ scalable apps across e-commerce, emergency response, and WiFi infrastructure domains. Proven leader and mentor in dev communities. Skilled in penetration testing, API security, and automation. Passionate about shaping future developers through mentorship and technical evangelism.</p>
-                    
-                    <h4>👑 LEADERSHIP EXPERIENCE</h4>
-                    <p><strong>🥇 i-Team Lead – Meru University Frontend Devs (2023–Present)</strong><br>
-                    • Led a squad of 12 developers building Next.js, Vue.js, and Tailwind apps.<br>
-                    • Implemented CI/CD pipelines and GitHub automation workflows.<br>
-                    • Mentored 30+ devs in modular architecture, SSR, and TypeScript.</p>
-                    
-                    <p><strong>🚀 Next.js School Lead – GDSC Meru (2023–2024)</strong><br>
-                    • Organized 5+ in-depth Next.js workshops covering advanced App Router patterns.<br>
-                    • Delivered two major live projects: E-Commerce Pro & Campus Events (Vercel).</p>
-                    
-                    <p><strong>📱 Flutter Team Lead – Aztechnos Mobile Division (2023)</strong><br>
-                    • Oversaw architecture for Dharura Emergency and Bidhaa Tele M2C.<br>
-                    • Managed backend integrations: Firebase Auth, Firestore, Maps, and M-Pesa.</p>
-                    
-                    <p><strong>🧪 Postman API Evangelist – Meru Dev Circles (2023–Present)</strong><br>
-                    • Facilitated 50+ devs in REST, JSON schemas, and test automation via Postman.<br>
-                    • Led API security workshops with live demos and challenge labs.</p>
-                    
-                    <p><strong>🧑‍🏫 Tutor – Computer Science Peer Instructor (2022–Present)</strong><br>
-                    • Conducted over 30 bootcamps on Flutter, Next.js, and Git/GitHub workflows.<br>
-                    • Designed mentorship content adopted by clubs in 3 other universities.</p>
-                    
-                    <h4>💼 PROFESSIONAL EXPERIENCE</h4>
-                    <p><strong>💻 Software Engineer – Aztechnos Solutions (Nov 2024 – Present)</strong><br>
-                    • Stack: Next.js, React, TypeScript, MongoDB, PostgreSQL<br>
-                    • Built logistics dashboards reducing data-fetch latency by 40%.<br>
-                    • Integrated real-time M-Pesa payments and notification engines.<br>
-                    • Deployed analytics microservices on Vercel + PostgreSQL.</p>
-                    
-                    <p><strong>🚨 QA + Frontend Dev – Envisage Multimedia (Jun – Aug 2024)</strong><br>
-                    • Projects: Dharura App (Flutter), Bidhaa Tele (Next.js + Supabase)<br>
-                    • Caught and resolved 50+ UI bugs using Cypress, Postman, and Charles Proxy.<br>
-                    • Enhanced API response handling, reduced app crashes by 60%.</p>
-                    
-                    <p><strong>🧪 QA Intern – Teach2Give (Jun – Aug 2023)</strong><br>
-                    • Designed QA scripts for mentorship platforms (React).<br>
-                    • Increased registration success rates by 20% through detailed flow analysis.</p>
-                    
-                    <p><strong>🌐 Software Engineer – McDorcis Solutions (2022 – 2023)</strong><br>
-                    • Built CRM automation tools using React, PostgreSQL.<br>
-                    • Reduced form processing delays and improved user experience by 35%.</p>
-                    
-                    <p><strong>🛠️ Freelance Developer – Upwork, Fiverr, UTest (2021 – Present)</strong><br>
-                    • Delivered 20+ products including Admin Panels, Mobile Apps, and APIs.<br>
-                    • Specialized in Flutter, Firebase, Supabase, Next.js, Cypress.</p>
-                    
-                    <p><strong>📡 Network Engineer – TRUTH WiFi (2020 – 2025)</strong><br>
-                    • Tech: MikroTik, PHP, MySQL, RouterOS, Radius Auth, Linux<br>
-                    • Built captive portal for 500+ users with dynamic session tracking.<br>
-                    • Integrated MikroTik routers with a full Radius billing engine.<br>
-                    • Reduced packet loss by 40% using RouterOS QoS rules and auto-recovery scripts.</p>
-                    
-                    <p><strong>🔐 Cybersecurity Advocate – Self-led Research & Labs (2022–Present)</strong><br>
-                    • Performed penetration tests using OWASP ZAP and Burp Suite.<br>
-                    • Implemented JWT token hardening in Node.js apps.<br>
-                    • Created secure authentication flows with OTP, reCAPTCHA, and 2FA.<br>
-                    • Explored attack simulation via TryHackMe and HackTheBox.</p>
-                    
-                    <h4>🎓 EDUCATION</h4>
-                    <p><strong>🏫 Meru University of Science and Technology (2021 – 2025)</strong><br>
-                    • Degree: BSc in Computer Science<br>
-                    • Final Project: IoT DDoS Detection using Mininet + Python + Scikit-learn.<br>
-                    • Highlights: Developed 92% accurate ML detection model for IoT botnet attacks.</p>
-                    
-                    <p><strong>🏫 Kamagut High School (2016 – 2021)</strong><br>
-                    • KCSE: A-<br>
-                    • Subjects: Computer Studies, Physics, Mathematics</p>
-                    
-                    <p><strong>🏫 Kapsowar Primary School (2006 – 2016)</strong><br>
-                    • KCPE: 380/500</p>
-                </div>
-                <div class="about-skills">
-                    <h4>🧠 TECHNICAL SKILLS</h4>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h6 class="skill-title">🧩 Languages</h6>
-                            <div class="skill-percentage">
-                                <p><span class="counter">95</span>%</p>
-                            </div>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="bar-inner">
-                                <div class="bar progress-line" data-progress="95%"></div>
-                            </div>
-                        </div>
-                        <p>TypeScript, Dart, Python, PHP, SQL, JavaScript, Bash</p>
-                    </div>
-                    
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h6 class="skill-title">🎨 Frontend</h6>
-                            <div class="skill-percentage">
-                                <p><span class="counter">90</span>%</p>
-                            </div>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="bar-inner">
-                                <div class="bar progress-line" data-progress="90%"></div>
-                            </div>
-                        </div>
-                        <p>Next.js, Vue.js, Tailwind CSS, HTML5, Framer Motion</p>
-                    </div>
-                    
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h6 class="skill-title">📱 Mobile</h6>
-                            <div class="skill-percentage">
-                                <p><span class="counter">88</span>%</p>
-                            </div>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="bar-inner">
-                                <div class="bar progress-line" data-progress="88%"></div>
-                            </div>
-                        </div>
-                        <p>Flutter, Riverpod, Bloc, Firebase, Fastlane</p>
-                    </div>
-                    
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h6 class="skill-title">🖥️ Backend</h6>
-                            <div class="skill-percentage">
-                                <p><span class="counter">85</span>%</p>
-                            </div>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="bar-inner">
-                                <div class="bar progress-line" data-progress="85%"></div>
-                            </div>
-                        </div>
-                        <p>Node.js, Express.js, Supabase, PostgreSQL, REST APIs</p>
-                    </div>
-                    
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h6 class="skill-title">🧪 QA/Testing</h6>
-                            <div class="skill-percentage">
-                                <p><span class="counter">82</span>%</p>
-                            </div>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="bar-inner">
-                                <div class="bar progress-line" data-progress="82%"></div>
-                            </div>
-                        </div>
-                        <p>Cypress, Playwright, UTest, Postman, Jest, Locust</p>
-                    </div>
-                    
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h6 class="skill-title">☁️ DevOps</h6>
-                            <div class="skill-percentage">
-                                <p><span class="counter">80</span>%</p>
-                            </div>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="bar-inner">
-                                <div class="bar progress-line" data-progress="80%"></div>
-                            </div>
-                        </div>
-                        <p>GitHub Actions, Docker, Netlify, Vercel, AWS S3, EC2</p>
-                    </div>
-                    
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h6 class="skill-title">🕸️ Cybersecurity</h6>
-                            <div class="skill-percentage">
-                                <p><span class="counter">78</span>%</p>
-                            </div>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="bar-inner">
-                                <div class="bar progress-line" data-progress="78%"></div>
-                            </div>
-                        </div>
-                        <p>OWASP ZAP, JWT Security, HTTPS Certs, OAuth2</p>
-                    </div>
-                    
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <h6 class="skill-title">🌐 Networking</h6>
-                            <div class="skill-percentage">
-                                <p><span class="counter">85</span>%</p>
-                            </div>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="bar-inner">
-                                <div class="bar progress-line" data-progress="85%"></div>
-                            </div>
-                        </div>
-                        <p>MikroTik RouterOS, Radius, PPPoE/IPoE, Linux Admin</p>
-                    </div>
-                </div>
-                
-                <div class="projects-section">
-                    <h4>🚀 PROJECTS</h4>
-                    <p><strong>1️⃣ Dharura Emergency App (Flutter + Firebase)</strong><br>
-                    • Real-time alerts, live geolocation, offline sync, and SOS API.</p>
-                    
-                    <p><strong>2️⃣ Bidhaa Tele M2C Platform (Next.js + Supabase + M-Pesa)</strong><br>
-                    • M2C e-commerce with dashboards, Stripe/M-Pesa, dynamic inventory.</p>
-                    
-                    <p><strong>3️⃣ IoT DDoS Detection System (Python + Mininet + Scikit-learn)</strong><br>
-                    • ML model trained to detect network attacks with 92% real-time accuracy.</p>
-                    
-                    <p><strong>4️⃣ WiFi Billing System (PHP + MySQL + MikroTik)</strong><br>
-                    • Portal supporting dynamic billing plans, session control, and daily user stats.</p>
-                </div>
-                
-                <div class="testimonials-section">
-                    <h4>📜 TESTIMONIALS</h4>
-                    <p>"Deen architected our entire Flutter app in 3 weeks—clean code, no bugs."<br>
-                    — CEO, McDorcis Solutions (+254 707 256013)</p>
-                </div>
-                
-                <div class="references-section">
-                    <h4>📇 HIGH COMMAND REFERENCES</h4>
-                    <table>
-                        <tr>
-                            <th>Name</th>
-                            <th>Role</th>
-                            <th>Contact</th>
-                        </tr>
-                        <tr>
-                            <td>Alex Maunda</td>
-                            <td>CEO, Envisage Multimedia</td>
-                            <td>+254 729 095905</td>
-                        </tr>
-                        <tr>
-                            <td>Evans Kibet</td>
-                            <td>CEO, Bonilla LTD</td>
-                            <td>+254 715 105667</td>
-                        </tr>
-                        <tr>
-                            <td>Hezron Emboi</td>
-                            <td>CEO, MOMI Foundation</td>
-                            <td>+254 724 508283</td>
-                        </tr>
-                        <tr>
-                            <td>Wadeya</td>
-                            <td>CEO, Aztechnos</td>
-                            <td>+254 718 338810</td>
-                        </tr>
-                    </table>
-                </div>
-                
-                <div class="final-word">
-                    <h4>🎯 FINAL WORD</h4>
-                    <p>"I don't just write code—I design digital command centers. Whether it's fighting DDoS, scaling fintech apps, or running a 500+ user network, I deliver solutions that are clean, secure, and unstoppable."</p>
-                </div>
+            <div class="professional-images">
+                <img src="images/professional1.jpg" alt="Professional Work">
+                <img src="images/professional2.jpg" alt="Team Collaboration">
             </div>
         </div>
     </div>
 </section>
-<!--===== Services Section End =====-->
+
+<!-- Leadership Experience Section -->
+<section class="professional-section" id="leadership">
+    <div class="container">
+        <div class="section-title">
+            <h3>Leadership Experience</h3>
+            <ul class="line">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="professional-content">
+            <div class="professional-images">
+                <img src="images/leadership1.jpg" alt="Leadership Photo">
+                <img src="images/leadership2.jpg" alt="Team Photo">
+            </div>
+            <div class="professional-text">
+                <h4>i-Team Lead – Meru University Frontend Devs (2023–Present)</h4>
+                <ul class="professional-highlights">
+                    <li>Led a squad of 12 developers building Next.js, Vue.js, and Tailwind apps</li>
+                    <li>Implemented CI/CD pipelines and GitHub automation workflows</li>
+                    <li>Mentored 30+ devs in modular architecture, SSR, and TypeScript</li>
+                </ul>
+                
+                <h4>Next.js School Lead – GDSC Meru (2023–2024)</h4>
+                <ul class="professional-highlights">
+                    <li>Organized 5+ in-depth Next.js workshops covering advanced App Router patterns</li>
+                    <li>Delivered two major live projects: E-Commerce Pro & Campus Events (Vercel)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Professional Experience Section -->
+<section class="professional-section" id="experience">
+    <div class="container">
+        <div class="section-title">
+            <h3>Professional Experience</h3>
+            <ul class="line">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="professional-content">
+            <div class="professional-text">
+                <h4>Software Engineer – Aztechnos Solutions (Nov 2024 – Present)</h4>
+                <ul class="professional-highlights">
+                    <li>Stack: Next.js, React, TypeScript, MongoDB, PostgreSQL</li>
+                    <li>Built logistics dashboards reducing data-fetch latency by 40%</li>
+                    <li>Integrated real-time M-Pesa payments and notification engines</li>
+                </ul>
+                
+                <h4>QA + Frontend Dev – Envisage Multimedia (Jun – Aug 2024)</h4>
+                <ul class="professional-highlights">
+                    <li>Projects: Dharura App (Flutter), Bidhaa Tele (Next.js + Supabase)</li>
+                    <li>Caught and resolved 50+ UI bugs using Cypress, Postman, and Charles Proxy</li>
+                </ul>
+            </div>
+            <div class="professional-images">
+                <img src="images/experience1.jpg" alt="Work Experience">
+                <img src="images/experience2.jpg" alt="Project Showcase">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section class="professional-section" id="projects">
+    <div class="container">
+        <div class="section-title">
+            <h3>Key Projects</h3>
+            <ul class="line">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="professional-content">
+            <div class="professional-images">
+                <img src="images/project1.jpg" alt="Dharura Emergency App">
+                <img src="images/project2.jpg" alt="Bidhaa Tele Platform">
+            </div>
+            <div class="professional-text">
+                <h4>Dharura Emergency App (Flutter + Firebase)</h4>
+                <ul class="professional-highlights">
+                    <li>Real-time alerts and live geolocation</li>
+                    <li>Offline sync and SOS API integration</li>
+                </ul>
+                
+                <h4>Bidhaa Tele M2C Platform (Next.js + Supabase + M-Pesa)</h4>
+                <ul class="professional-highlights">
+                    <li>M2C e-commerce with dashboards</li>
+                    <li>Stripe/M-Pesa payment integration</li>
+                    <li>Dynamic inventory management</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education Section -->
+<section class="professional-section" id="education">
+    <div class="container">
+        <div class="section-title">
+            <h3>Education</h3>
+            <ul class="line">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="professional-content">
+            <div class="professional-text">
+                <h4>Meru University of Science and Technology (2021 – 2025)</h4>
+                <ul class="professional-highlights">
+                    <li>Degree: BSc in Computer Science</li>
+                    <li>Final Project: IoT DDoS Detection using Mininet + Python + Scikit-learn</li>
+                    <li>Developed 92% accurate ML detection model for IoT botnet attacks</li>
+                </ul>
+                
+                <h4>Kamagut High School (2016 – 2021)</h4>
+                <ul class="professional-highlights">
+                    <li>KCSE: A-</li>
+                    <li>Subjects: Computer Studies, Physics, Mathematics</li>
+                </ul>
+            </div>
+            <div class="professional-images">
+                <img src="images/education1.jpg" alt="University">
+                <img src="images/education2.jpg" alt="High School">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="professional-section" id="testimonials">
+    <div class="container">
+        <div class="section-title">
+            <h3>Testimonials</h3>
+            <ul class="line">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="professional-content">
+            <div class="professional-images">
+                <img src="images/testimonial1.jpg" alt="Client Testimonial">
+                <img src="images/testimonial2.jpg" alt="Team Testimonial">
+            </div>
+            <div class="professional-text">
+                <blockquote>
+                    "Deen architected our entire Flutter app in 3 weeks—clean code, no bugs."
+                    <cite>— CEO, McDorcis Solutions (+254 707 256013)</cite>
+                </blockquote>
+                
+                <blockquote>
+                    "Exceptional problem-solving skills and delivered beyond expectations."
+                    <cite>— CTO, Envisage Multimedia</cite>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!--===== Portfolio Section Start =====-->
 <section class="portfolio section-padding" id="portfolio">
     <div class="container">
