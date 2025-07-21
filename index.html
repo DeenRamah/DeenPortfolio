@@ -1,850 +1,1374 @@
-<!DOCTYPE html>
-<!-- saved from url=(0033)http://127.0.0.1:5500/index.html# -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+/*===== Google Fonts =====*/
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+/*===== Global CSS =====*/
+html
+{
+    scroll-behavior: smooth;
+}
+.bubble-text{
+    font-size: clamp(3rem, calc(3rem,4.5vw) 10rem);
+    color: hsl(0, 0%, 50%);
+    user-select: none;
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dev Kiprotich </title>
 
-<!--===== Font Awesome =====-->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<!--===== Main CSS =====-->
-<link rel="stylesheet" href="css/style.css">
-<style>
-    /* New Professional Sections Styling */
-    .professional-section {
-        padding: 80px 0;
-        background-color: #f9f9f9;
+    & .split-char{
+        font-weight: 250;
+        transition: font-weight 0.5s ease;
+
+        &:hover {
+            font-weight: var(--_fw-900);
+            color: var(--_clr-900);
+        }
+
+        &:has(+ .split-char:hover){
+            font-weight: var(--_fw-700);
+            color: var(--_clr-700);
+        }
+
+        &:has(+ .split-char + .split-char:hover){
+            font-weight: var(--_fw-400);
+            color: var(--_clr-400);
+        }
+
+        &:hover + .split-char{
+            font-weight: var(--_clr-700);
+            color: var(--_clr-700);
+        }
+
+        &:hover + .split-char +.split-char{
+            font-weight: var(--_fw-400);
+            color: var(--_clr-400);
+        }
+
     }
-    
-    .professional-section .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 15px;
+}
+:root
+{
+    --main-color:#00a78e;
+    --shadow-black-100:0 5px 15px rgba(0,0,0,0.2);
+    --black-900:#000;
+    --black-400:#646f87;
+    --black-100:#f7f7f7;
+    --white:#fff;
+    --black-alpha-100:rgba(0,0,0,.05);
+}
+body
+{
+    font-family: "Kaushan Script", cursive;
+    font-size: 16px;
+    font-weight: normal;
+    overflow-x: hidden;
+    background-color: var(--white);
+}
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+ul
+{
+    list-style: none;
+}
+img
+{
+    vertical-align: middle;
+}
+img:hover{
+    transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+    box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+
+
+
+
+
+
+
+.container
+{
+    max-width: 1140px;
+    margin: auto;
+}
+
+
+.row
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+.justify-content-center
+{
+    justify-content: center;
+}
+.justify-content-between
+{
+    justify-content: space-between;
+}
+.align-items-center
+{
+    align-items: center;
+}
+.btn-1
+{
+    background-color: var(--main-color);
+    padding: 15px 40px;
+    border: none;
+    color: var(--white);
+    border-radius: 5px;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 600;
+    transition: all 0.3s ease-out;
+}
+.btn-1:hover
+{
+    color: var(--white);
+    background-color: rgba(0,167,142,0.7);
+}
+
+.btn-2
+{
+    background-color: var(--white);
+    padding: 15px 40px;
+    border: none;
+    color: var(--main-color);
+    border-radius: 5px;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 600;
+    border: 1px solid var(--main-color);
+    transition: all 0.3s ease-out;
+}
+.btn-2:hover
+{
+    color: var(--white);
+    background-color: var(--main-color);
+    border: none;
+}
+.section-padding
+{
+    padding: 80px 0;
+}
+.text-align
+{
+    text-align: center;
+}
+.section-title
+{
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 30px;
+}
+.section-title .sub-title
+{
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--main-color);
+}
+.section-title .main-title
+{
+    font-size: 35px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+.section-title .line 
+{
+    padding-top: 0px;
+}
+.section-title .line li
+{
+    display: inline-block;
+    background-color: var(--main-color);
+    border-radius: 50px;
+    height: 3px;
+}
+.section-title .line li:nth-of-type(1)
+{
+    width: 64px;
+}
+.section-title .line li:nth-of-type(2)
+{
+    width: 10px;
+}
+.section-title .line li:nth-of-type(3)
+{
+    width: 7px;
+}
+/*===== Navbar =====*/
+.navbar
+{
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    padding: 25px;
+    transition: all 0.5s ease;
+}
+.navbar.sticky
+{
+    padding: 12px 25px;
+    background-color: var(--white);
+    box-shadow: var(--shadow-black-100);
+}
+.navbar .logo a
+{
+    font-size: 24px;
+    color: var(--black-900);
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.navbar .logo a span
+{
+    color: var(--main-color);
+}
+.navbar .menu .nav-item
+{
+    display: inline-block;
+    position: relative;
+    margin-left: 36px;
+}
+.navbar .menu .nav-item .nav-link
+{
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+    text-transform: capitalize;
+    padding: 10px 0;
+}
+.navbar.sticky .menu .nav-item .nav-link
+{
+    color: var(--main-color);
+}
+.navbar .nav-item .nav-link span
+{
+    width: 0;
+    height: 2px;
+    background-color: var(--white);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 50px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-out 0s;
+}
+.navbar .nav-item .nav-link span::before
+{
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: var(--white);
+    left: 110%;
+}
+.navbar .nav-item .nav-link span::after
+{
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: var(--white);
+    left: 140%;
+}
+.navbar.sticky .nav-item a span,.navbar.sticky .nav-item a span::before,.navbar.sticky .nav-item a span::after
+{
+    background-color: var(--main-color);
+}
+.navbar .nav-item > .nav-link.active span,.navbar .nav-item:hover > .nav-link span
+{
+    opacity: 1;
+    visibility: visible;
+    width: 60%;
+}
+.navbar .nav-item > .nav-link.active span::before,.navbar .nav-item:hover > .nav-link span::before
+{
+    width: 20%;
+}
+.navbar .nav-item > .nav-link.active span::after,.navbar .nav-item:hover > .nav-link span::after
+{
+    width: 15%;
+}
+.menu-btn
+{
+    background-color: var(--main-color);
+    height: 34px;
+    width: 44px;
+    box-shadow: var(--shadow-black-100);
+    padding: 0;
+    border-radius: 5px;
+    line-height: 34px;
+    text-align: center;
+    color: var(--white);
+    font-size: 17px;
+    display: none;
+}
+.navbar.sticky .menu-btn
+{
+    color: var(--main-color);
+    background-color: var(--white);
+}
+/*===== Home =====*/
+.home-section
+{
+    position: relative;
+    background-color: var(--black-100);
+    z-index: 1;
+    overflow-x: hidden;
+    padding-top: 80px;
+}
+.header-social
+{
+    position: absolute;
+    top: 53%;
+    left: 50px;
+    transform: translateY(-53%);
+    border: 1px solid rgba(0,167,142,0.21);
+    border-radius: 50px;
+}
+.header-social li a 
+{
+    font-size: 18px;
+    display: block;
+    text-align: center;
+    padding: 20px 15px;
+    color: rgba(100,111,135,0.58);
+    transition: all 0.3s ease-out 0s;
+}
+.header-social li a:hover
+{
+    color: var(--main-color);
+}
+.home-section .home-text,
+.home-section .home-image
+{
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 25px;
+}
+.home-section .home-text h4
+{
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--main-color);
+}
+.home-section .home-text h1
+{
+    font-size: 50px;
+    font-weight: 700;
+    margin-top: 15px;
+    color: var(--black-900);
+}
+.home-section .home-text span
+{
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--black-900);
+    font-weight: 500;
+    display: block;
+    margin-top: 15px;
+}
+.home-section .home-text p
+{
+    font-size: 16px;
+    color: var(--black-400);
+    font-weight: 24px;
+    margin-top: 15px;
+}
+.home-section .home-text .btn 
+{
+    display: inline-block;
+    margin-top: 15px;
+}
+.home-section .home-image .img-box img
+{
+    position: relative;
+    width: 100%;
+    z-index: 789;
+}
+.header-hero-shape
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+}
+.header-hero-shape::before
+{
+    position: absolute;
+    content: '';
+    width: 1000%;
+    height: 100%;
+    background-color: var(--main-color);
+    transform: skewX(20deg);
+    top: 0;
+    left: 0;
+}
+/*===== About =====*/
+.about-section .about-image,
+.about-section .about-content
+{
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 20px;
+}
+.about-section .about-image .img-box
+{
+    position: relative;
+}
+.about-section .about-image .img-box img
+{
+    max-width: 100%;
+    width: 100%;
+    z-index: 8;
+}
+.about-section .about-image .img-box .about-shape
+{
+    width: 404px;
+    height: 525px;
+    border-left: 15px solid var(--main-color);
+    border-bottom: 15px solid var(--main-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+.about-section .about-image .img-box .about-shape::before
+{
+    position: absolute;
+    content: '';
+    width: 15px;
+    height: 85%;
+    background-color: var(--main-color);
+    bottom: 0;
+    right: 0;
+}
+.about-section .about-image .img-box .about-shape::after
+{
+    position: absolute;
+    content: '';
+    width: 104%;
+    height: 15px;
+    background-color: var(--main-color);
+    top: 36px;
+    right: -2px;
+    transform: rotate(11deg);
+    border-top-left-radius: 20px;
+}
+.about-section .about-content p
+{
+    text-align: justify;
+}
+.skill-item .skill-header
+{
+    position: relative;
+}
+.skill-item .skill-header .skill-title
+{
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 15px;
+}
+.skill-item .skill-header .skill-percentage
+{
+    position: absolute;
+    top: -3px;
+    right: 0;
+}
+.skill-item .skill-header .skill-percentage p
+{
+    font-size: 14px;
+    font-weight: 400;
+}
+.skill-item .skill-bar
+{
+    margin-top: 15px;
+}
+.skill-item .skill-bar .bar-inner
+{
+    width: 100%;
+    height: 9px;
+    border-radius: 5px;
+    background-color: rgba(33,243,26,0.11);
+    position: relative;
+}
+.skill-item .skill-bar .bar-inner .progress-line
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 9px;
+    border-radius: 5px;
+    background-color: var(--main-color);
+    width: 0%;
+    transition:all 2s ease-out;
+}
+.skill-item .skill-bar .bar-inner .progress-line::before
+{
+    position: absolute;
+    content: '';
+    width: 7px;
+    height: 18px;
+    background-color: var(--white);
+    border: 2px solid var(--main-color);
+    top: -7px;
+    right: 0;
+}
+/*===== Services =====*/
+.service-section
+{
+    min-height: 100vh;
+    background-color: var(--black-100);
+}
+.service-section .service-item
+{
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.service-section .service-item-inner
+{
+    box-shadow: var(--shadow-black-100);
+    padding: 50px 15px;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.service-section .service-item-inner:hover
+{
+    background-color: var(--main-color);
+}
+.service-section .service-item-inner .icon 
+{
+    height: 60px;
+    width: 60px;
+    background-color: var(--main-color);
+    margin: 0 auto 30px;
+    text-align: center;
+    font-size: 28px;
+    color: var(--white);
+    border-radius: 20px;
+    border-bottom-right-radius: 0;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+.service-section .service-item-inner:hover .icon
+{
+    background-color: var(--white);
+    color: var(--main-color);
+    font-size: 24px;
+}
+.service-section .service-item-inner .icon i
+{
+    line-height: 60px;
+}
+.service-section .service-item-inner h3
+{
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--black-900);
+    margin: 0 0 10px;
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+}
+.service-section .service-item-inner:hover h3
+{
+    color: var(--white);
+}
+.service-section .service-item-inner p
+{
+    font-size: 16px;
+    color: var(--black-400);
+    margin: 0;
+    line-height: 26px;
+    transition: all 0.3s ease;
+}
+.service-section .service-item-inner:hover p
+{
+    color: var(--black-100);
+}
+/*===== portfolio =====*/
+.portfolio .portfolio-filter
+{
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 20px;
+    text-align: center;
+}
+.portfolio .portfolio-filter button
+{
+    text-transform: uppercase;
+    margin-top: -20px;
+    outline: none;
+    border: 1px solid;
+    border-color: var(--main-color);
+    padding: 8px;
+    font-weight: 600;
+    border-radius: 5px;
+    background-color: var(--white);
+    margin-right: 20px;
+    color: var(--main-color);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+.portfolio .portfolio-filter button:last-child
+{
+    margin-right: 0;
+}
+.portfolio .portfolio-filter button:hover,
+.portfolio .portfolio-filter button.active 
+{
+    color: var(--white);
+    background-color: var(--main-color);
+}
+.portfolio .portfolio-item
+{
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.portfolio .portfolio-item.hide 
+{
+    display: none;
+}
+.portfolio .portfolio-item.show
+{
+    display: block;
+    animation:  showItem 0.5s ease;
+}
+@keyframes showItem
+{
+    0%
+    {
+        transform: scale(0.8);
+        opacity: 0;
     }
-    
-    .professional-section .section-title {
+    100%
+    {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.portfolio .portfolio-item-inner
+{
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: var(--shadow-black-100);
+    cursor: pointer;
+    position: relative;
+}
+.portfolio .portfolio-item-inner .portfolio-img img
+{
+    width: 100%;
+    display: block;
+}
+.portfolio .portfolio-item .portfolio-info
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.8);
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    padding: 30px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+.portfolio .portfolio-item:hover .portfolio-info
+{
+    opacity: 1;
+}
+.portfolio .portfolio-item .portfolio-info h4
+{
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--main-color);
+    text-transform: capitalize;
+    transform: translateX(-20px);
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+.portfolio .portfolio-item:hover .portfolio-info h4
+{
+    transform: translateX(0px);
+    opacity: 1;
+}
+.portfolio .portfolio-item .portfolio-info .icon
+{
+    height: 40px;
+    width: 40px;
+    color: var(--white);
+    background-color: var(--main-color);
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    transform: translateX(20px);
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+.portfolio .portfolio-item:hover .portfolio-info .icon
+{
+    transform: translateX(0px);
+    opacity: 1;
+}
+.portfolio .portfolio-item .portfolio-info .icon .fa 
+{
+    line-height: 40px;
+}
+/*===== Lightbox =====*/
+.lightbox
+{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+    padding: 30px;
+}
+.lightbox.open 
+{
+    display: flex;
+}
+.lightbox .lightbox-content img
+{
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 500px;
+    cursor: pointer;
+    display: block;
+    padding: 40px 0 30px;
+}
+.lightbox .lightbox-content
+{
+    position: relative;
+}
+.lightbox.open .lightbox-content
+{
+    animation:  lightboxImage .5s ease;
+}
+@keyframes lightboxImage
+{
+    0%
+    {
+        transform: scale(0.8);
+    }
+    100%
+    {
+        transform: scale(1);
+    }
+}
+.lightbox .lightbox-content .lightbox-close
+{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 0;
+    right: 0;
+    font-size: 32px;
+    color: var(--white);
+    line-height: 40px;
+    text-align: right;
+}
+.lightbox .lightbox-content .lightbox-caption
+{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: var(--white);
+    font-weight: 400;
+    z-index: -1;
+}
+.lightbox .lightbox-controls .prev-item,
+.lightbox .lightbox-controls .next-item
+{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    background-color: var(--white);
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    top: 50%;
+    margin-top: -20px;
+    z-index: 110;
+    transition: all 0.3s ease;
+}
+
+.lightbox .lightbox-controls .next-item:hover,
+.lightbox .lightbox-controls .prev-item:hover
+{
+    transform: scale(1.1);
+}
+.lightbox .lightbox-controls .next-item:active,
+.lightbox .lightbox-controls .prev-item:active
+{
+    transform: scale(1);
+}
+.lightbox .lightbox-controls .prev-item
+{
+    left: 30px;
+}
+.lightbox .lightbox-controls .next-item
+{
+    right: 30px;
+}
+.lightbox .lightbox-controls .next-item .fa,
+.lightbox .lightbox-controls .prev-item .fa
+{
+    font-size: 32px;
+    line-height: 40px;
+}
+/*===== pricing =====*/
+.pricing-item
+{
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.pricing-plan
+{
+    box-shadow: var(--shadow-black-100);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+}
+.pricing-plan .pricing-header
+{
+    padding: 20px 30px;
+    border-bottom: 1px solid var(--black-100);
+    position: relative;
+}
+.pricing-plan .pricing-header h3
+{
+    font-size: 30px;
+    color: var(--black-900);
+    font-weight: 500;
+    text-transform: capitalize;
+    margin: 0;
+}
+.best-value
+{
+    position: absolute;
+    right: -35%;
+    top: 50%;
+    width: 100%;
+    color: var(--white);
+    background-color: var(--main-color);
+    text-transform: capitalize;
+    transform: rotate(50deg);
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 0;
+}
+.pricing-plan .pricing-price
+{
+    padding: 40px 30px;
+    display: flex;
+    line-height: 0.7;
+}
+.pricing-plan .pricing-price .currency
+{
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--black-400);
+    margin-right: 5px;
+    align-self: flex-start;
+}
+.pricing-plan .pricing-price .price 
+{
+    font-size: 80px;
+    font-weight: 700;
+    color: var(--main-color);
+}
+.pricing-plan .pricing-price .period
+{
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--black-400);
+    margin-right: 5px;
+    align-self: flex-end;
+    text-transform: uppercase;
+}
+.pricing-plan .pricing-body
+{
+    padding: 0 30px;
+}
+.pricing-plan .pricing-body ul li
+{
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--black-400);
+    padding: 10px 0 10px 30px;
+    border-bottom: 1px solid var(--black-alpha-100);
+    line-height: 26px;
+    position: relative;
+}
+.pricing-plan .pricing-body ul li:last-child
+{
+    border-bottom: none;
+}
+.pricing-plan .pricing-body ul li i
+{
+    color: var(--main-color);
+    position: absolute;
+    left: 0;
+    top: 12px;
+}
+.pricing-plan .pricing-footer
+{
+    padding: 40px;
+    text-align: center;
+}
+/*===== contact =====*/
+.contact-section
+{
+    min-height: 100vh;
+    background-color: var(--black-100);
+}
+.contact-section .contact-item
+{
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.contact-section .contact-item-inner
+{
+    padding: 30px 15px;
+    text-align: center;
+    box-shadow: var(--shadow-black-100);
+    border-radius: 5px;
+    width: 100%;
+}
+.contact-section .contact-item-inner i
+{
+    font-size: 25px;
+    color: var(--main-color);
+}
+.contact-section .contact-item-inner span
+{
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--black-900);
+    margin: 15px 0 10px;
+    text-transform: capitalize;
+}
+.contact-section .contact-item-inner p
+{
+    font-size: 16px;
+    color: var(--black-400);
+    line-height: 26px;
+    margin: 0;
+}
+.contact-section .contact-form
+{
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 50px;
+}
+.contact-section .w-50
+{
+    padding: 0 15px;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.contact-section .input-group
+{
+    margin: 0 0 25px;
+    border-radius: 30px;
+    background-color: var(--black-100);
+    box-shadow: var(--shadow-black-100);
+}
+.contact-section .input-group .input-control
+{
+    height: 45px;
+    display: block;
+    width: 100%;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 16px;
+    padding: 0 15px;
+    transition: all 0.3s ease;
+    color: var(--black-400);
+}
+.contact-section .input-group textarea.input-control
+{
+    height: 180px;
+    padding-top: 15px;
+    resize: none;
+}
+.contact-section .input-group .input-control:focus
+{
+    border: 1px solid var(--main-color);
+}
+.contact-section .submit-btn
+{
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: right;
+    padding: 0 15px;
+}
+
+/*Responsive*/
+@media  (min-width:1300px) and (max-width:1399px)
+{
+    .header-social
+    {
+        left: 10px;
+    }
+}
+@media  (max-width:1300px)
+{
+    .header-social
+    {
+        display: none;
+    }
+}
+@media(max-width: 991px)
+{
+    .navbar .menu
+    {
+        position: fixed;
+        left: -100%;
+        top: 80px;
+        flex-direction: column;
+        background-color: var(--main-color);
+        width: 100%;
         text-align: center;
-        margin-bottom: 50px;
+        transition: all 0.5s ease;
+        box-shadow: 0 10px 27px rgba(0,0,0,.05);
     }
-    
-    .professional-section .section-title h3 {
-        font-size: 36px;
-        color: #333;
-        margin-bottom: 15px;
+    .navbar .menu.active 
+    {
+        left: 0;
     }
-    
-    .professional-section .section-title .line {
+    .navbar.sticky .menu
+    {
+        background-color: var(--white);
+        top: 65px;
+    }
+    .navbar .menu .nav-item
+    {
+        display: block;
+        margin: 6px 0;
+    }
+    .navbar.sticky .menu .nav-item .nav-link
+    {
+        color: var(--main-color);
+    }
+    .navbar .nav-item .nav-link span 
+    {
+        display: none;
+    }
+    .navbar .menu-btn
+    {
+        display: block;
+        z-index: 999;
+    }
+    .header-social
+    {
+        display: block;
+        left: 90%;
+    }
+    .header-hero-shape
+    {
+        display: none;
+    }
+    .home-section .home-image,
+    .home-section .home-text
+    {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .home-section .home-image
+    {
         display: flex;
         justify-content: center;
-        margin-bottom: 20px;
     }
-    
-    .professional-section .section-title .line li {
-        width: 40px;
-        height: 3px;
-        background-color: #ff4d4d;
-        margin: 0 5px;
-    }
-    
-    .professional-content {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        margin-bottom: 40px;
-    }
-    
-    .professional-text {
-        flex: 1;
-        padding: 0 30px;
-    }
-    
-    .professional-images {
-        display: flex;
-        gap: 20px;
+    .home-image .img-box
+    {
         margin-top: 30px;
     }
-    
-    .professional-images img {
-        width: 100%;
-        max-width: 250px;
-        border-radius: 8px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    .about-section .about-image
+    {
+        display: none;
+    }
+    .about-section .about-content
+    {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+    .about-section .about-content .section-title
+    {
+        text-align: center;
+    }
+    .pricing .pricing-item,
+    .portfolio .portfolio-item,
+    .service-section .service-item
+    {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+@media(max-width: 767px)
+{
+    .header-social
+    {
+        left: 85%;
+    }
+    .service-section .service-item,
+    .portfolio .portfolio-item,
+    .pricing .pricing-item,
+    .contact-section .contact-item,
+    .contact-section .w-50,
+    .about-section .about-content
+    {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+.footer{
+    background-color: #24262b;
+    padding: 70px 0;
+    }
+    .footer-col{
+    width: 25%;
+    padding: 0 15px;
+    }
+    .footer-col h4{
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+    }
+    .footer-col h4::before{
+    content: '';
+    position: absolute;
+    left:0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+    }
+    .footer-col ul li:not(:last-child){
+    margin-bottom: 10px;
+    }
+    .footer-col ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+    }
+    .footer-col ul li a:hover{
+    color: #ffffff;
+    padding-left: 8px;
+    }
+    .footer-col .social-links a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255,255,255,0.2);
+    margin:0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+    }
+    .footer-col .social-links a:hover{
+    color: #24262b;
+    background-color: #ffffff;
     }
     
-    .professional-highlights {
-        margin-top: 30px;
+    /*responsive*/
+    @media(max-width: 767px){
+    .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+    }
+    }
+    @media(max-width: 574px){
+    .footer-col{
+    width: 100%;
+    }
     }
     
-    .professional-highlights li {
-        margin-bottom: 15px;
-        position: relative;
-        padding-left: 25px;
+    footer .container3 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em;
+    }
+    .footer .container3 {
+    display: flex;
+    justify-content: space-between;
+    gap: 2em;
+    }
+    .brand {
+    display: block;
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-bottom: 1em;
+    }
+    .media-icons li,
+    .services-icons li {
+    display: inline-block;
+    margin: 0.5em 0.5em 0.5em 0;
+    }
+    .media-icons a {
+    font-size: 1.1em;
+    width: 2em;
+    height: 2em;
+    border: 1px #fff solid;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    }
+    .media-icons a:hover {
+    background: #fff;
+    color: #111;
+    }
+    .services-icons a {
+    font-size: 1.6em;
+    }
+    .services-icons a:hover {
+    color: #94fbab;
+    }
+    .footer-bottom {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid rgba(138, 208, 153, 0.36);
+    padding: 2em;
+    }
+    .footer .menu {
+    margin-bottom: 1em;
+    }
+    .footer .menu li {
+    display: inline-block;
+    margin: 0 0.7em 0.7em 0;
+    text-align: center;
+    }
+    .footer .menu a {
+    transition: 0.3s;
+    font-weight: 600;
+    }
+    .footer .menu a:hover {
+    color: #94fbab;
+    }
+    .input-wrap {
+    margin: 1em 0;
+    display: flex;
+    }
+    .input-wrap input {
+    padding: 0.5em;
+    border: none;
+    background: #20232a;
+    color: #ccc;
+    }
+    .input-wrap input:focus {
+    outline: none;
+    }
+    .input-wrap button {
+    padding: 0.8em;
+    background: #94fbab;
+    border: none;
+    color: #217634;
+    transition: 0.3s;
+    }
+    .input-wrap button:hover {
+    background: #fff;
+    color: #111;
+    }
+    /* == responsive == */
+    @media screen and (max-width: 900px) {
+    .footer .container {
+        flex-direction: column;
+    }
+    }
+
+
+.container3 {
+margin-bottom: 20px;
+}
+
+.container + .container3 {
+margin-top: 20px;
+}
+
+.container3 {
+    position: relative;
+    top: 20px; /* Adjust the value as needed */
+    }
+
+
+.col3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
     }
     
-    .professional-highlights li:before {
-        content: "•";
-        color: #ff4d4d;
-        font-size: 24px;
-        position: absolute;
-        left: 0;
-        top: -3px;
+    /* Media Queries */
+    @media only screen and (max-width: 767px) {
+    /* Styles for phone */
+    .col3 {
+        /* Adjust the styles as needed */
+    }
     }
     
-    .contact-details {
-        margin: 20px 0;
-        padding: 15px;
-        background: rgba(255,255,255,0.1);
-        border-radius: 8px;
+    @media only screen and (min-width: 768px) and (max-width: 1023px) {
+    /* Styles for tablet */
+    .col3 {
+        /* Adjust the styles as needed */
+    }
     }
     
-    blockquote {
-        font-style: italic;
-        padding: 15px;
-        background: #f5f5f5;
-        border-left: 4px solid #ff4d4d;
-        margin: 20px 0;
+    @media only screen and (min-width: 1024px) {
+    /* Styles for desktop */
+    .col3 {
+        /* Adjust the styles as needed */
+    }
     }
     
-    cite {
-        display: block;
-        margin-top: 10px;
-        font-weight: bold;
-    }
-    
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        .professional-content {
-            flex-direction: column;
-        }
-        
-        .professional-text {
-            padding: 0;
-            margin-bottom: 30px;
-        }
-        
-        .professional-images {
-            justify-content: center;
-        }
-    }
-</style>
-</head>
-<body>
-    <div id="map"></div>
-    <div class="bubble-text text">Dev Kiprotich </div>
 
-<!--===== Navbar Start =====-->
-<nav class="navbar">
-    <div class="container">
-        <div class="row justify-content-between">
-            <div class="logo"><a href="index.html">Dev De<span>en Kiprotich</span></a></div>
-            <div class="links">
-            <ul class="menu">
-                <li class="nav-item"><a href="#home" class="nav-link active">Home <span></span></a></li>
-                <li class="nav-item"><a href="#about" class="nav-link">About <span></span></a></li>
-                <li class="nav-item"><a href="#professional-summary" class="nav-link">Profile <span></span></a></li>
-                <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio <span></span></a></li>
-                <li class="nav-item"><a href="#pricing" class="nav-link">Pricing <span></span></a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact <span></span></a></li>
-            </ul>
-            </div>
-            <div class="menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </div>
-</nav>
-<!--===== Navbar End =====-->
-<!--===== Home Section Start =====-->
-<section class="home-section" id="home">
-    <ul class="header-social"> <!--===== Header Social =====-->
-        <li><a href="https://www.facebook.com/profile.php?id=100088239297829"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="https://twitter.com/Deen_Ramah"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="https://www.instagram.com/deen_ramah/"><i class="fab fa-instagram"></i></a></li>
-        <li><a href="https://www.linkedin.com/in/kipchumba-kiprotich-2b10b5279/"><i class="fab fa-linkedin"></i></a></li>
-        <li><a href="https://github.com/DeenRamah"><i class="fab fa-github"></i></a></li>
-        <li><a href="https://www.fiverr.com/deen_66?up_rollout=true"><i class="fab">
-            <img src="images/fiverr.png" alt="HTML5 Icon" style="width: 20px; height: 20px; border-radius: 50%;">
-        </i></a></li>
-    </ul>
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="home-text">
-                <h4>Hello</h4>
-                <h1>🔥 KIPROTICH KIPCHUMBA 🔥</h1>
-                <span>Multi-disciplinary Software Engineer | Tutor | Cybersecurity Enthusiast | Network Engineer</span>
-                <p>Expert in Flutter, Next.js, Vue.js, and Python with a rich background in full-stack development, testing, and systems security. Architected and deployed 15+ scalable apps across e-commerce, emergency response, and WiFi infrastructure domains. Proven leader and mentor in dev communities. Skilled in penetration testing, API security, and automation. Passionate about shaping future developers through mentorship and technical evangelism.</p>
-                <div class="contact-details">
-                    <p>📞 <strong>CONTACT DETAILS</strong></p>
-                    <p>📍 Nairobi, Kenya | ✉️ 01kiprotich@gmail.com | ☎️ +254 719760996</p>
-                    <p> |https://www.linkedin.com/in/kipchumba-kiprotich-2b10b5279/ | 🌐</p>
-                </div>
-                <a href="#" class="btn btn-1">purchase now</a>
-            </div>
-            <div class="home-image">
-                <div class="img-box">
-                    <img src="images/hero.jpg" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="header-hero-shape"></div> <!--===== Hero Shape =====-->
-</section>
-<!--===== Home Section End =====-->
-
-<!-- Professional Summary Section -->
-<section class="professional-section" id="professional-summary">
-    <div class="container">
-        <div class="section-title">
-            <h3>Professional Summary</h3>
-            <ul class="line">
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-        <div class="professional-content">
-            <div class="professional-text">
-                <p>Multi-disciplinary Software Engineer with expertise in both front-end and back-end development. Skilled in HTML, CSS, JavaScript, React, Angular, TypeScript, Vue, Node.js, Python, Ruby, MySQL, and MongoDB. Experienced with version control systems, API integration, server management, and deployment.</p>
-                
-                <div class="professional-highlights">
-                    <ul>
-                        <li>Versatility in programming and frameworks</li>
-                        <li>Strong Technical Foundation in full-stack development</li>
-                        <li>Excellent Problem Solving and Debugging Proficiency</li>
-                        <li>Cybersecurity Awareness and Collaborative Team Player</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="professional-images">
-                <img src="https://raw.githubusercontent.com/0Deen/DeemahApp/main/screenshots/h.jpg" alt="Professional Work">
-                <img src="https://raw.githubusercontent.com/0Deen/DeemahApp/main/screenshots/a.jpg" alt="Team Collaboration">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Leadership Experience Section -->
-<section class="professional-section" id="leadership">
-    <div class="container">
-        <div class="section-title">
-            <h3>Leadership Experience</h3>
-            <ul class="line">
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-        <div class="professional-content">
-            <div class="professional-images">
-                <img src="https://raw.githubusercontent.com/DeenRamah/deen-admin-js/main/src/vib.jpg" alt="Leadership Photo">
-                <img src="https://raw.githubusercontent.com/DeenRamah/deen-admin-js/main/src/yu.jpg" alt="Team Photo">
-            </div>
-            <div class="professional-text">
-                <h4>i-Team Lead – Meru University Frontend Devs (2023–Present)</h4>
-                <ul class="professional-highlights">
-                    <li>Led a squad of 12 developers building Next.js, Vue.js, and Tailwind apps</li>
-                    <li>Implemented CI/CD pipelines and GitHub automation workflows</li>
-                    <li>Mentored 30+ devs in modular architecture, SSR, and TypeScript</li>
-                </ul>
-                
-                <h4>Next.js School Lead – GDSC Meru (2023–2024)</h4>
-                <ul class="professional-highlights">
-                    <li>Organized 5+ in-depth Next.js workshops covering advanced App Router patterns</li>
-                    <li>Delivered two major live projects: E-Commerce Pro & Campus Events (Vercel)</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Professional Experience Section -->
-<section class="professional-section" id="experience">
-    <div class="container">
-        <div class="section-title">
-            <h3>Professional Experience</h3>
-            <ul class="line">
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-        <div class="professional-content">
-            <div class="professional-text">
-                <h4>Software Engineer – Aztechnos Solutions (Nov 2024 – Present)</h4>
-                <ul class="professional-highlights">
-                    <li>Stack: Next.js, React, TypeScript, MongoDB, PostgreSQL</li>
-                    <li>Built logistics dashboards reducing data-fetch latency by 40%</li>
-                    <li>Integrated real-time M-Pesa payments and notification engines</li>
-                </ul>
-                
-                <h4>QA + Frontend Dev – Envisage Multimedia (Jun – Aug 2024)</h4>
-                <ul class="professional-highlights">
-                    <li>Projects: Dharura App (Flutter), Bidhaa Tele (Next.js + Supabase)</li>
-                    <li>Caught and resolved 50+ UI bugs using Cypress, Postman, and Charles Proxy</li>
-                </ul>
-            </div>
-            <div class="professional-images">
-                <img src="https://raw.githubusercontent.com/0Deen/DeemahApp/main/screenshots/b.jpg" alt="Work Experience">
-                <img src="https://raw.githubusercontent.com/0Deen/DeemahApp/main/screenshots/baner.png" alt="Project Showcase">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Projects Section -->
-<section class="professional-section" id="projects">
-    <div class="container">
-        <div class="section-title">
-            <h3>Key Projects</h3>
-            <ul class="line">
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-        <div class="professional-content">
-            <div class="professional-images">
-                <img src="https://raw.githubusercontent.com/0Deen/DeemahApp/main/screenshots/hat.jpg" alt="Dharura Emergency App">
-                <img src="https://raw.githubusercontent.com/0Deen/DeemahApp/main/screenshots/ma.jpg" alt="Bidhaa Tele Platform">
-            </div>
-            <div class="professional-text">
-                <h4>Dharura Emergency App (Flutter + Firebase)</h4>
-                <ul class="professional-highlights">
-                    <li>Real-time alerts and live geolocation</li>
-                    <li>Offline sync and SOS API integration</li>
-                </ul>
-                
-                <h4>Bidhaa Tele M2C Platform (Next.js + Supabase + M-Pesa)</h4>
-                <ul class="professional-highlights">
-                    <li>M2C e-commerce with dashboards</li>
-                    <li>Stripe/M-Pesa payment integration</li>
-                    <li>Dynamic inventory management</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Education Section -->
-<section class="professional-section" id="education">
-    <div class="container">
-        <div class="section-title">
-            <h3>Education</h3>
-            <ul class="line">
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-        <div class="professional-content">
-            <div class="professional-text">
-                <h4>Meru University of Science and Technology (2021 – 2025)</h4>
-                <ul class="professional-highlights">
-                    <li>Degree: BSc in Computer Science</li>
-                    <li>Final Project: IoT DDoS Detection using Mininet + Python + Scikit-learn</li>
-                    <li>Developed 92% accurate ML detection model for IoT botnet attacks</li>
-                </ul>
-                
-                <h4>Kamagut High School (2016 – 2021)</h4>
-                <ul class="professional-highlights">
-                    <li>KCSE: A-</li>
-                    <li>Subjects: Computer Studies, Physics, Mathematics</li>
-                </ul>
-            </div>
-            <div class="professional-images">
-                <img src="https://raw.githubusercontent.com/0Deen/DeemahApp/main/screenshots/oh.jpg" alt="University">
-                <img src="https://raw.githubusercontent.com/0Deen/DeemahApp/main/screenshots/hat.jpg" alt="High School">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Testimonials Section -->
-<section class="professional-section" id="testimonials">
-    <div class="container">
-        <div class="section-title">
-            <h3>Testimonials</h3>
-            <ul class="line">
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-        <div class="professional-content">
-            <div class="professional-images">
-                <img src="https://raw.githubusercontent.com/0Deen/DeemahApp/main/screenshots/ma.jpg" alt="Client Testimonial">
-                <img src="https://raw.githubusercontent.com/0Deen/DeemahApp/main/screenshots/oh.jpg" alt="Team Testimonial">
-            </div>
-            <div class="professional-text">
-                <blockquote>
-                    "Deen architected our entire Flutter app in 3 weeks—clean code, no bugs."
-                    <cite>— CEO, McDorcis Solutions (+254 707 256013)</cite>
-                </blockquote>
-                
-                <blockquote>
-                    "Exceptional problem-solving skills and delivered beyond expectations."
-                    <cite>— CTO, Envisage Multimedia</cite>
-                </blockquote>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!--===== Portfolio Section Start =====-->
-<section class="portfolio section-padding" id="portfolio">
-    <div class="container">
-    <div class="row">
-        <div class="section-title text-align">
-            <h5 class="sub-title">portfolio</h5>
-            <h3 class="main-title">My latest work</h3>
-            <ul class="line">
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div> <!--===== Section Title =====-->
-        </div>
-        <div class="row">
-            <div class="portfolio-filter">
-                <button type="button" class="active" data-filter="all">All</button>
-                <button type="button" data-filter="web-design">web design</button>
-                <button type="button" data-filter="photography">DevOps</button>
-                <button type="button" data-filter="wordpress">Data Science</button>
-                <button type="button" data-filter="wordpress">Front-end Development:</button>
-                <button type="button" data-filter="wordpress">Application Development</button>
-                <button type="button" data-filter="wordpress">Back-end Development</button>
-                <button type="button" data-filter="wordpress">Database design</button>
-            </div>
-        </div>
-        <div class="row">
-            <!--===== portfolio-item start =====-->
-            <div class="portfolio-item" data-category="wordpress">
-                <div class="portfolio-item-inner">
-                    <div class="portfolio-img">
-                        <img src="images/portfolio/portfolio-1.jpg" alt="">
-                    </div>
-                    <div class="portfolio-info">
-                        <h4>web design &amp; Management</h4>
-                        <div class="icon">
-                            <i class="fa fa-search"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--===== portfolio-item end =====-->
-            <!--===== portfolio-item start =====-->
-
-            <div class="portfolio-item" data-category="wordpress">
-                <div class="portfolio-item-inner">
-                    <div class="portfolio-img">
-                        <img src="images/portfolio/portfolio-2.jpg" alt="">
-                    </div>
-                    <div class="portfolio-info">
-                        <h4>Back-end Development</h4>
-                        <div class="icon">
-                            <i class="fa fa-search"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="portfolio-item" data-category="wordpress">
-            <div class="portfolio-item-inner">
-                <div class="portfolio-img">
-                    <img src="images/portfolio/portfolio-3.jpg" alt="">
-                </div>
-                <div class="portfolio-info">
-                    <h4>wordpress</h4>
-                    <div class="icon">
-                        <i class="fa fa-search"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-            <!--===== portfolio-item end =====-->
-            <!--===== portfolio-item start =====-->
-            <div class="portfolio-item" data-category="photography">
-            <div class="portfolio-item-inner">
-                <div class="portfolio-img">
-                    <img src="images/portfolio/portfolio-4.jpg" alt="">
-                </div>
-                <div class="portfolio-info">
-                    <h4>Database design:</h4>
-                    <div class="icon">
-                        <i class="fa fa-search"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-            <!--===== portfolio-item end =====-->
-            <!--===== portfolio-item start =====-->
-            <div class="portfolio-item" data-category="web-design">
-            <div class="portfolio-item-inner">
-                <div class="portfolio-img">
-                    <img src="images/portfolio/portfolio-5.jpg" alt="">
-                </div>
-                <div class="portfolio-info">
-                    <h4>Front-end Development:</h4>
-                    <div class="icon">
-                        <i class="fa fa-search"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-            <!--===== portfolio-item end =====-->
-            <!--===== portfolio-item start =====-->
-            <div class="portfolio-item" data-category="wordpress">
-            <div class="portfolio-item-inner">
-                <div class="portfolio-img">
-                    <img src="images/portfolio/portfolio-6.jpg" alt="">
-                </div>
-                <div class="portfolio-info">
-                    <h4>Desktop Application Development:</h4>
-                    <div class="icon">
-                        <i class="fa fa-search"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-            <!--===== portfolio-item end =====-->
-            <!--===== portfolio-item start =====-->
-
-
-            <div class="portfolio-item" data-category="wordpress">
-                <div class="portfolio-item-inner">
-                    <div class="portfolio-img">
-                        <img src="images/portfolio/deen1.jpg" alt="">
-                    </div>
-                    <div class="portfolio-info">
-                        <h4>DevOps:</h4>
-                        <div class="icon">
-                            <i class="fa fa-search"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-                            <!--===== portfolio-item end =====-->
-            <!--===== portfolio-item start =====-->
-
-
-            <div class="portfolio-item" data-category="wordpress">
-                <div class="portfolio-item-inner">
-                    <div class="portfolio-img">
-                        <img src="images/portfolio/deen2.jpg" alt="">
-                    </div>
-                    <div class="portfolio-info">
-                        <h4>Data Science:</h4>
-                        <div class="icon">
-                            <i class="fa fa-search"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-                            <!--===== portfolio-item end =====-->
-            <!--===== portfolio-item start =====-->
-
-        <div class="portfolio-item" data-category="wordpress">
-            <div class="portfolio-item-inner">
-                <div class="portfolio-img">
-                    <img src="images/portfolio/Deen3.jpg" alt="">
-                </div>
-                <div class="portfolio-info">
-                    <h4>Debugging and troubleshooting:</h4>
-                    <div class="icon">
-                        <i class="fa fa-search"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-            <!--===== portfolio-item end =====-->
-            <!--===== portfolio-item start =====-->
-            <div class="portfolio-item" data-category="photography">
-            <div class="portfolio-item-inner">
-                <div class="portfolio-img">
-                    <img src="images/portfolio/Deen4.jpg" alt="">
-                </div>
-                <div class="portfolio-info">
-                    <h4>Mobile App Development</h4>
-                    <div class="icon">
-                        <i class="fa fa-search"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-            <!--===== portfolio-item end =====-->
-        </div>
-    </div>
-</section>
-<!--===== Portfolio Section End =====-->
-<!--===== Pricing Section Start =====-->
-<section class="pricing section-padding" id="pricing">
-    <div class="container">
-    <div class="row">
-        <div class="section-title text-align">
-            <h5 class="sub-title">pricing</h5>
-            <h3 class="main-title">pricing plans</h3>
-            <ul class="line">
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div> <!--===== Section Title =====-->
-        </div>
-        <div class="row justify-content-center">
-            <div class="pricing-item">
-                <div class="pricing-plan">
-                    <div class="pricing-header">
-                        <h3>basic</h3>
-                    </div>
-                    <div class="pricing-price">
-                        <span class="currency">$</span>
-                        <span class="price">99</span>
-                        <span class="period">/monthly</span>
-                    </div>
-                    <div class="pricing-body">
-                        <ul>
-                            <li><i class="fa fa-check"></i> 5 GB BandWidth </li>
-                            <li><i class="fa fa-check"></i> Free Update </li>
-                            <li><i class="fa fa-check"></i> High Regulation Printing </li>
-                            <li><i class="fa fa-check"></i> Branding </li>
-                            <li><i class="fa fa-check"></i> Another Great Features </li>
-                        </ul>
-                    </div>
-                    <div class="pricing-footer">
-                        <a href="#" class="btn-2">get started</a>
-                    </div>
-                </div>
-            </div>
-            <div class="pricing-item">
-            <div class="pricing-plan">
-                <div class="pricing-header">
-                    <h3>premium</h3>
-                    <h2 class="best-value">best value</h2>
-                </div>
-                <div class="pricing-price">
-                    <span class="currency">$</span>
-                    <span class="price">199</span>
-                    <span class="period">/monthly</span>
-                </div>
-                <div class="pricing-body">
-                    <ul>
-                        <li><i class="fa fa-check"></i> 5 GB BandWidth </li>
-                        <li><i class="fa fa-check"></i> Free Update </li>
-                        <li><i class="fa fa-check"></i> High Regulation Printing </li>
-                        <li><i class="fa fa-check"></i> Branding </li>
-                        <li><i class="fa fa-check"></i> Another Great Features </li>
-                    </ul>
-                </div>
-                <div class="pricing-footer">
-                    <a href="#" class="btn-1">get started</a>
-                </div>
-            </div>
-        </div>
-        <div class="pricing-item">
-            <div class="pricing-plan">
-                <div class="pricing-header">
-                    <h3>ultimate</h3>
-                </div>
-                <div class="pricing-price">
-                    <span class="currency">$</span>
-                    <span class="price">299</span>
-                    <span class="period">/monthly</span>
-                </div>
-                <div class="pricing-body">
-                    <ul>
-                        <li><i class="fa fa-check"></i> 5 GB BandWidth </li>
-                        <li><i class="fa fa-check"></i> Free Update </li>
-                        <li><i class="fa fa-check"></i> High Regulation Printing </li>
-                        <li><i class="fa fa-check"></i> Branding </li>
-                        <li><i class="fa fa-check"></i> Another Great Features </li>
-                    </ul>
-                </div>
-                <div class="pricing-footer">
-                    <a href="#" class="btn-2">get started</a>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
-</section>
-<!--===== Pricing Section End =====-->
-<!--===== Contact Section Start =====-->
-<section class="contact-section section-padding" id="contact">
-    <div class="container">
-    <div class="row">
-        <div class="section-title text-align">
-            <h5 class="sub-title">contact</h5>
-            <h3 class="main-title">get in touch</h3>
-            <ul class="line">
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div> <!--===== Section Title =====-->
-        </div>
-        <div class="row">
-            <!--===== contact item start =====-->
-            <div class="contact-item">
-                <div class="contact-item-inner">
-                    <i class="fas fa-phone"></i>
-                    <span>Phone</span>
-                    <p>+25471976096</p>
-                </div>
-            </div>
-            <!--===== contact item end =====-->
-            <!--===== contact item start =====-->
-            <div class="contact-item">
-            <div class="contact-item-inner">
-                <i class="fas fa-envelope"></i>
-                <span>Email</span>
-                <p>kiprotich66kipchumba@gmail.com
-                </p>
-            </div>
-        </div>
-            <!--===== contact item end =====-->
-            <!--===== contact item start =====-->
-            <div class="contact-item">
-            <div class="contact-item-inner">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Address</span>
-                <p>Bazaar Building</p>
-            </div>
-        </div>
-            <!--===== contact item end =====-->
-        </div>
-            <!--===== Contact Form =====-->
-        <div class="row">
-            <form action="https://formsubmit.co/kiprotich66kipchumba@gmail.com" method="POST">
-            <div class="contact-form">
-                
-                    <div class="row">
-                        <div class="w-50">
-                            <div class="input-group">
-                                <input type="text" placeholder="Name" class="input-control">
-                            </div>
-                            <div class="input-group">
-                            <input type="email" placeholder="Email" name="name" class="input-control">
-                        </div>
-                        <div class="input-group">
-                            <input type="text" placeholder="Subject" name="msg" class="input-control">
-                        </div>
-                        </div>
-                        <div class="w-50">
-                            <div class="input-group">
-                                <textarea name="" class="input-control" placeholder="Message" id="" cols="30" rows="10"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="submit-btn">
-                            <button type="submit" class="btn-1">Send Message</button>
-                        </div>
-                    </div>
-                
-            </div></form>
-            
-        </div>
-    </div>
-</section>
-<!--===== Contact Section End =====-->
-
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8196504991292!2d36.821596!3d-1.28197955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d45af411ad%3A0x6123ae4b4551b201!2sBazaar%20Plaza%2C%20Moi%20Ave%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1714359156222!5m2!1sen!2ske" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-<!--===== Footer Section Start =====-->
-<footer class="footer">
-	<div class="container">
-	<div class="row">
-		<div class="footer-col">
-			<h4>company</h4>
-			<ul>
-				<li><a href="#">about us</a></li>
-				<li><a href="#">our services</a></li>
-				<li><a href="#">privacy policy</a></li>
-				<li><a href="#">affiliate program</a></li>
-			</ul>
-		</div>
-		<div class="footer-col">
-			<h4>get help</h4>
-			<ul>
-				<li><a href="#">FAQ</a></li>
-				<li><a href="#">shipping</a></li>
-				<li><a href="#">returns</a></li>
-				<li><a href="#">order status</a></li>
-				<li><a href="#">payment options</a></li>
-			</ul>
-		</div>
-		<div class="footer-col">
-			<h4>online shop</h4>
-			<ul>
-				<li><a href="#">website development</a></li>
-				<li><a href="#">Full systems development</a></li>
-				<li><a href="#">database design and maintenance</a></li>
-				<li><a href="#">Mobile Application Development</a></li><li>
-                <a href="#">Desktop Application Development</a></li>
-                <li><a href="#">Complete projects</a></li>
-
-
-			</ul>
-		</div>
-		<div class="footer-col">
-			<h4>follow us</h4>
-			<div class="social-links">
-                <li><a href="https://www.facebook.com/profile.php?id=100088239297829"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="https://twitter.com/Deen_Ramah"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://www.instagram.com/deen_ramah/"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/kipchumba-kiprotich-2b10b5279/"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="https://github.com/DeenRamah"><i class="fab fa-github"></i></a></li>
-                <li><a href="https://www.fiverr.com/deen_66?up_rollout=true"><i class="fab">
-                    <img src="images/fiverr.png" alt="HTML5 Icon" style="width: 20px; height: 20px; border-radius: 50%;">
-                </i></a></li>
-			</div>
-		</div>
-
-
-        <div class="container3">
-            <div class="col2">
-                <ul class="menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Skills</a></li>
-                <li><a href="#">Contact</a></li>
-                <p>Thank you for visiting my website! As a skilled full stack developer, I am committed to crafting dynamic and user-friendly web experiences. <br>From conceptualization to implementation, I bring creativity and technical expertise to every project. Whether you're looking for a stunning <br>front-end design or robust back-end functionality, I am here to bring your vision to life. Explore my portfolio to see the range of projects I've worked on, <br>and feel free to reach out for any inquiries or collaborations. Together, let's create exceptional web solutions that leave a lasting impression?</p>
-                </ul>
-            </div>
-            <div class="col3">
-                <p>Subscribe to our newslatter</p>
-                <form>
-                <div class="input-wrap">
-                    <input type="email" placeholder="ex@gmail.com"><button type="submit"><i class="fas fa-paper-plane"></i></button>
-                </div>
-                </form>
-                <ul class="services-icons">
-                <li>
-                    <a href="#"><i class="fab fa-paypal"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fab fa-apple-pay"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fab fa-amazon-pay"></i></a>
-                </li>
-                <li>
-                    <a href="#"><i class="fab fa-google-pay"></i></a>
-                </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
-<!--===== Footer Section End =====-->
-
-<!--===== Main JS =====-->
-<script src="js/main.js"></script>
-
-</body></html>
